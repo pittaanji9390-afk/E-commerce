@@ -28,6 +28,16 @@ import java.util.UUID;
 public class ProductController {
 
     private final ProductService productService;
+    private final ProductSearchService productSearchService;
+
+    @Operation(summary = "Search and filter active marketplace products (Full-Text & Facets)")
+    @GetMapping("/search")
+    public ResponseEntity<PagedResult<ProductDto>> searchProducts(
+            @ModelAttribute ProductSearchFilter filter,
+            @PageableDefault(size = 20, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<ProductDto> page = productSearchService.searchProducts(filter, pageable);
+        return ResponseEntity.ok(PagedResult.of(page));
+    }
 
     @Operation(summary = "Browse all active marketplace products (Paginated)")
     @GetMapping

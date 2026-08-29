@@ -1,0 +1,37 @@
+{
+  "name": "enterprise-ecommerce-marketplace",
+  "version": "1.0.0",
+  "description": "Production-Ready Multi-Vendor E-Commerce Marketplace Platform with B2B Wholesale, WMS, Subscriptions, Advertising, and AI Recommendations",
+  "main": "app.js",
+  "scripts": {
+    "start": "docker-compose up",
+    "start:backend": "cd backend && mvn spring-boot:run",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && mvn clean package -DskipTests",
+    "test": "node --test tests/marketplace.test.js",
+    "test:coverage": "node --test --experimental-test-coverage tests/marketplace.test.js",
+    "test:backend": "cd backend && mvn test",
+    "test:all": "npm run test && npm run test:backend",
+    "lint": "npm --prefix frontend run lint",
+    "docker:build": "docker build -t marketplace-platform:latest .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "install:all": "npm install && cd frontend && npm install"
+  },
+  "keywords": [
+    "ecommerce",
+    "marketplace",
+    "multivendor",
+    "spring-boot",
+    "react",
+    "typescript",
+    "b2b",
+    "wms",
+    "subscriptions"
+  ],
+  "author": "Enterprise Architecture Team",
+  "license": "MIT"
+}

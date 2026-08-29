@@ -258,4 +258,5 @@ When booted with seed profile, sample accounts are pre-configured:
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Proprietary & Confidential. All rights reserved. Commercial use requires explicit authorization.
+

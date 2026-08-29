@@ -33,5 +33,7 @@
     "subscriptions"
   ],
   "author": "Enterprise Architecture Team",
-  "license": "MIT"
+  "private": true,
+  "license": "UNLICENSED"
 }
+
